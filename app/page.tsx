@@ -299,7 +299,7 @@ export default function Home() {
               What Our Customers Say
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Don't just take our word for it - hear from our satisfied customers
+              Don&apos;t just take our word for it - hear from our satisfied customers
             </p>
           </motion.div>
 

@@ -59,8 +59,8 @@ export default function AboutPage() {
                   problems.
                 </p>
                 <p>
-                  Over the years, we've grown from a one-person operation to a team of certified technicians, each
-                  specializing in different aspects of computer repair and IT services. Despite our growth, we've
+                  Over the years, we&apos;ve grown from a one-person operation to a team of certified technicians, each
+                  specializing in different aspects of computer repair and IT services. Despite our growth, we&apos;ve
                   maintained our commitment to personalized service and technical excellence.
                 </p>
                 <p>

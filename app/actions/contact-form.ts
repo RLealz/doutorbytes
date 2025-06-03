@@ -59,7 +59,7 @@ export async function submitContactForm(prevState: FormState, formData: FormData
       success: true,
       message: "Your request has been submitted successfully. We'll contact you shortly.",
     }
-  } catch (error) {
+  } catch {
     // Return error state
     return {
       success: false,
