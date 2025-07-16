@@ -75,7 +75,7 @@ export function CTASection() {
             transition={{ delay: 0.2, duration: 0.6 }}
             viewport={{ once: true }}
           >
-            Don't let computer issues slow you down. Our expert technicians are ready to help you today.
+            Don&apos;t let computer issues slow you down. Our expert technicians are ready to help you today.
           </motion.p>
           <motion.div
             className="flex flex-col sm:flex-row justify-center gap-4"

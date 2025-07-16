@@ -38,7 +38,7 @@ function SubmitButton() {
 
 export default function ContactPage() {
   // Updated to use useActionState instead of useFormState
-  const [formState, formAction, isPending] = useActionState<FormState, FormData>(submitContactForm, {})
+  const [formState, formAction] = useActionState<FormState, FormData>(submitContactForm, {})
   const [selectedService, setSelectedService] = useState("")
   const [selectedUrgency, setSelectedUrgency] = useState("")
 

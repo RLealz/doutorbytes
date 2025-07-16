@@ -28,7 +28,7 @@ export function TestimonialCard({ name, role, content, avatarSrc }: TestimonialC
             </div>
             <div className="relative mb-4">
               <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <p className="mb-4 text-muted-foreground italic relative z-10">"{content}"</p>
+              <p className="mb-4 text-muted-foreground italic relative z-10">&ldquo;{content}&rdquo;</p>
             </div>
             <div>
               <p className="font-semibold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
