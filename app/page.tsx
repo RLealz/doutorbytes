@@ -315,7 +315,6 @@ export default function Home() {
                 name="Carlos Silva"
                 role="Small Business Owner"
                 content="DoutorBytes saved my business when our server crashed. They recovered all our data and had us back up and running in no time. Highly recommended!"
-                avatarSrc="/placeholder.svg?height=80&width=80"
               />
             </motion.div>
             <motion.div variants={itemVariants}>
@@ -323,7 +322,6 @@ export default function Home() {
                 name="Ana Ferreira"
                 role="Graphic Designer"
                 content="My laptop screen cracked right before a big deadline. The team at DoutorBytes replaced it the same day and saved my project. Amazing service!"
-                avatarSrc="/placeholder.svg?height=80&width=80"
               />
             </motion.div>
             <motion.div variants={itemVariants}>
@@ -331,7 +329,6 @@ export default function Home() {
                 name="Ricardo Mendes"
                 role="Student"
                 content="As a student, I couldn't afford to lose my thesis data. DoutorBytes not only recovered everything but also upgraded my laptop to prevent future issues."
-                avatarSrc="/placeholder.svg?height=80&width=80"
               />
             </motion.div>
           </motion.div>
