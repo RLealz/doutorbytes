@@ -221,6 +221,12 @@ pnpm start
 - Write descriptive commit messages
 - Test responsive design
 
+## 📚 Documentation
+
+- **[Complete Documentation](./docs/)** - Comprehensive project documentation
+- **[Security Reports](./docs/reports/)** - Security audits and vulnerability assessments
+- **[Development Guide](./docs/README.md)** - Setup and development instructions
+
 ## 📄 License
 
 This project is proprietary software for DoutorBytes computer repair services.
