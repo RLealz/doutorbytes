@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import React, { useState } from "react"
 import { useActionState } from "react" // Updated import
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
@@ -41,6 +41,25 @@ export default function ContactPage() {
   const [formState, formAction] = useActionState<FormState, FormData>(submitContactForm, {})
   const [selectedService, setSelectedService] = useState("")
   const [selectedUrgency, setSelectedUrgency] = useState("")
+  const [captchaAnswer, setCaptchaAnswer] = useState("")
+
+  // Generate initial captcha
+  React.useEffect(() => {
+    if (!formState.captchaQuestion) {
+      formAction(new FormData())
+    }
+  }, [])
+
+  // Calculate captcha answer when question changes
+  React.useEffect(() => {
+    if (formState.captchaQuestion) {
+      const parts = formState.captchaQuestion.split(' + ')
+      if (parts.length === 2) {
+        const answer = (parseInt(parts[0]) + parseInt(parts[1])).toString()
+        setCaptchaAnswer(answer)
+      }
+    }
+  }, [formState.captchaQuestion])
 
   // Reset form after successful submission
   const handleReset = () => {
@@ -48,6 +67,7 @@ export default function ContactPage() {
     formAction(new FormData())
     setSelectedService("")
     setSelectedUrgency("")
+    setCaptchaAnswer("")
   }
 
   return (
@@ -315,6 +335,29 @@ export default function ContactPage() {
                           )}
                         </div>
 
+                        {/* Captcha Field */}
+                        <div className="space-y-2">
+                          <Label htmlFor="captcha" className="text-foreground">
+                            Security Check: What is {formState.captchaQuestion}?
+                          </Label>
+                          <Input
+                            id="captcha"
+                            name="captcha"
+                            type="number"
+                            placeholder="Enter the answer"
+                            className={`bg-background/50 border-border/60 focus:border-blue-500/50 focus:ring-blue-500/20 ${
+                              formState.errors?.captcha
+                                ? "border-red-500/50 focus:border-red-500/50 focus:ring-red-500/20"
+                                : ""
+                            }`}
+                            required
+                          />
+                          <input type="hidden" name="captchaAnswer" value={captchaAnswer} />
+                          {formState.errors?.captcha && (
+                            <p className="text-red-500 text-xs mt-1">{formState.errors.captcha[0]}</p>
+                          )}
+                        </div>
+
                         <SubmitButton />
                       </motion.form>
                     )}
@@ -346,11 +389,9 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold text-lg">Our Location</h3>
                       <p className="text-muted-foreground">
-                        123 Tech Street
+                        Campo Grande Lisboa Portugal
                         <br />
-                        São Paulo, SP 01234-567
-                        <br />
-                        Brazil
+                        1700-094
                       </p>
                     </div>
                   </motion.div>
@@ -365,7 +406,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg">Phone</h3>
-                      <p className="text-muted-foreground">+55 (11) 9999-9999</p>
+                      <p className="text-muted-foreground">+351 939 427 390</p>
                     </div>
                   </motion.div>
 
@@ -379,7 +420,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg">Email</h3>
-                      <p className="text-muted-foreground">info@doutorbytes.com</p>
+                      <p className="text-muted-foreground">geral.doutorbytes.pt@outlook.com</p>
                     </div>
                   </motion.div>
 

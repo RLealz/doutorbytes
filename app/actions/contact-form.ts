@@ -10,6 +10,8 @@ const formSchema = z.object({
   service: z.string().min(1, { message: "Please select a service" }),
   urgency: z.string().min(1, { message: "Please select urgency level" }),
   message: z.string().optional(),
+  captcha: z.string().min(1, { message: "Please solve the captcha" }),
+  captchaAnswer: z.string().min(1, { message: "Captcha answer is required" }),
 })
 
 export type FormState = {
@@ -20,13 +22,34 @@ export type FormState = {
     service?: string[]
     urgency?: string[]
     message?: string[]
+    captcha?: string[]
     _form?: string[]
   }
   success?: boolean
   message?: string
+  captchaQuestion?: string
+}
+
+// Generate a simple math captcha
+function generateCaptcha() {
+  const num1 = Math.floor(Math.random() * 10) + 1
+  const num2 = Math.floor(Math.random() * 10) + 1
+  const question = `${num1} + ${num2}`
+  const answer = (num1 + num2).toString()
+  return { question, answer }
 }
 
 export async function submitContactForm(prevState: FormState, formData: FormData): Promise<FormState> {
+  // Generate new captcha for the form
+  const captcha = generateCaptcha()
+  
+  // If this is the initial load or reset, return with captcha question
+  if (!formData.get("name") && !formData.get("email")) {
+    return {
+      captchaQuestion: captcha.question,
+    }
+  }
+
   // Validate form data
   const validatedFields = formSchema.safeParse({
     name: formData.get("name"),
@@ -35,6 +58,8 @@ export async function submitContactForm(prevState: FormState, formData: FormData
     service: formData.get("service"),
     urgency: formData.get("urgency"),
     message: formData.get("message"),
+    captcha: formData.get("captcha"),
+    captchaAnswer: formData.get("captchaAnswer"),
   })
 
   // Return errors if validation fails
@@ -43,6 +68,22 @@ export async function submitContactForm(prevState: FormState, formData: FormData
       errors: validatedFields.error.flatten().fieldErrors,
       success: false,
       message: "Please fix the errors in the form.",
+      captchaQuestion: captcha.question,
+    }
+  }
+
+  // Validate captcha
+  const userAnswer = validatedFields.data.captcha
+  const correctAnswer = validatedFields.data.captchaAnswer
+  
+  if (userAnswer !== correctAnswer) {
+    return {
+      errors: {
+        captcha: ["Incorrect answer. Please try again."],
+      },
+      success: false,
+      message: "Please solve the captcha correctly.",
+      captchaQuestion: captcha.question,
     }
   }
 
@@ -67,6 +108,7 @@ export async function submitContactForm(prevState: FormState, formData: FormData
       errors: {
         _form: ["Failed to submit the form. Please try again."],
       },
+      captchaQuestion: captcha.question,
     }
   }
 }

@@ -128,21 +128,21 @@ export function SiteFooter() {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 mr-2 text-blue-400" />
-                <span className="text-gray-400">123 Tech Street, São Paulo, SP 01234-567, Brazil</span>
+                <span className="text-gray-400">Campo Grande Lisboa Portugal 1700-094</span>
               </li>
               <li className="flex items-center">
                 <Phone className="h-5 w-5 mr-2 text-blue-400" />
-                <Link href="tel:+551199999999" className="text-gray-400 hover:text-blue-400 transition-colors">
-                  +55 (11) 9999-9999
+                <Link href="tel:+351939427390" className="text-gray-400 hover:text-blue-400 transition-colors">
+                  +351 939 427 390
                 </Link>
               </li>
               <li className="flex items-center">
                 <Mail className="h-5 w-5 mr-2 text-blue-400" />
                 <Link
-                  href="mailto:info@doutorbytes.com"
+                  href="mailto:geral.doutorbytes.pt@outlook.com"
                   className="text-gray-400 hover:text-blue-400 transition-colors"
                 >
-                  info@doutorbytes.com
+                  geral.doutorbytes.pt@outlook.com
                 </Link>
               </li>
             </ul>
