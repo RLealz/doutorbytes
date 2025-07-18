@@ -13,6 +13,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { MapPin, Phone, Mail, Clock, CheckCircle, AlertCircle, Loader2 } from "lucide-react"
 import { submitContactForm, type FormState } from "../actions/contact-form"
 import { useFormStatus } from "react-dom"
+import { InteractiveMap } from "@/components/interactive-map"
 
 // Submit button with loading state
 function SubmitButton() {
@@ -451,16 +452,9 @@ export default function ContactPage() {
                   Our Location
                 </h2>
                 <div className="aspect-video bg-background/30 rounded-lg overflow-hidden border border-border/40 relative group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
-                  <div className="w-full h-full flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center mx-auto mb-4">
-                        <MapPin className="h-8 w-8 text-blue-400" />
-                      </div>
-                      <p className="text-muted-foreground">Interactive map will be displayed here</p>
-                    </div>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none"></div>
+                  <div className="absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent z-10"></div>
+                  <InteractiveMap className="w-full h-full rounded-lg" />
                 </div>
               </div>
             </motion.div>
