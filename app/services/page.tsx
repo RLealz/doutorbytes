@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
-import { Cpu, Monitor, HardDrive, Wifi, Shield, Wrench, Server, Smartphone, Printer, Database } from "lucide-react"
+import { Cpu, HardDrive, Wifi, Shield, Wrench } from "lucide-react"
 import { CTASection } from "@/components/cta-section"
 import { motion } from "framer-motion"
 
@@ -15,13 +15,6 @@ export default function ServicesPage() {
       description:
         "Comprehensive diagnostics and repair for desktops, laptops, and other devices. We fix motherboards, power supplies, and other components.",
       link: "/services/hardware-repair",
-    },
-    {
-      icon: <Monitor className="h-10 w-10 text-purple-400" />,
-      title: "Screen Replacement",
-      description:
-        "Fast and reliable screen replacement for laptops, tablets, and monitors. We use high-quality replacement parts for all major brands.",
-      link: "/services/screen-replacement",
     },
     {
       icon: <HardDrive className="h-10 w-10 text-cyan-400" />,
@@ -50,34 +43,6 @@ export default function ServicesPage() {
       description:
         "Hardware and software upgrades to improve performance. We can upgrade RAM, storage, graphics cards, and install the latest software.",
       link: "/services/upgrades",
-    },
-    {
-      icon: <Server className="h-10 w-10 text-purple-400" />,
-      title: "Business IT Support",
-      description:
-        "Comprehensive IT support for small and medium businesses. We provide maintenance, troubleshooting, and strategic IT planning.",
-      link: "/services/business-it-support",
-    },
-    {
-      icon: <Smartphone className="h-10 w-10 text-blue-400" />,
-      title: "Mobile Device Repair",
-      description:
-        "Repair services for smartphones and tablets. We fix screens, batteries, charging ports, and other common issues.",
-      link: "/services/mobile-device-repair",
-    },
-    {
-      icon: <Printer className="h-10 w-10 text-green-400" />,
-      title: "Printer Setup & Repair",
-      description:
-        "Installation, configuration, and repair of printers and multifunction devices. We service all major brands.",
-      link: "/services/printer-repair",
-    },
-    {
-      icon: <Database className="h-10 w-10 text-purple-400" />,
-      title: "Cloud Services",
-      description:
-        "Setup and migration to cloud services. We help you leverage the power of cloud computing for your business or personal needs.",
-      link: "/services/cloud-services",
     },
   ]
 
