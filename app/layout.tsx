@@ -4,14 +4,37 @@ import { Inter } from "next/font/google"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { ThemeProvider } from "@/components/theme-provider"
+import type { Metadata } from "next"
 
 const inter = Inter({ subsets: ["latin"] })
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
 
-export const metadata = {
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "DoutorBytes - Expert Computer Repair & IT Services",
   description:
     "Professional computer repair and IT services for individuals and businesses. Fast, reliable, and affordable solutions for all your tech problems.",
-    generator: 'v0.dev'
+  generator: "v0.dev",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: "/",
+    title: "DoutorBytes - Expert Computer Repair & IT Services",
+    description:
+      "Professional computer repair and IT services for individuals and businesses. Fast, reliable, and affordable solutions for all your tech problems.",
+    images: [{ url: "/placeholder.jpg" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DoutorBytes - Expert Computer Repair & IT Services",
+    description:
+      "Professional computer repair and IT services for individuals and businesses. Fast, reliable, and affordable solutions for all your tech problems.",
+    images: ["/placeholder.jpg"],
+  },
+  icons: {
+    icon: "/placeholder-logo.png",
+    shortcut: "/placeholder-logo.png",
+  },
 }
 
 export default function RootLayout({

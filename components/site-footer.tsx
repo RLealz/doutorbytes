@@ -115,11 +115,6 @@ export function SiteFooter() {
                   Contact
                 </Link>
               </li>
-              <li>
-                <Link href="/blog" className="text-gray-400 hover:text-blue-400 transition-colors">
-                  Blog
-                </Link>
-              </li>
             </ul>
           </div>
 
